@@ -1,0 +1,281 @@
+@use "tailwindcss";
+
+@theme {
+  --color-primary: #0c3c7c;
+  --color-primary-99: #0c3c7c99;
+  --color-rotary: #f6a71b;
+  --color-rotary-50: #f6a71b80;
+  --color-accent: #347a9e;
+}
+
+@utility container {
+  max-width: 1200px;
+}
+
+.input-field {
+  @apply w-full rounded-md border border-gray-300 p-2;
+}
+
+.error-text {
+  @apply text-sm text-red-500;
+}
+
+.btn-primary {
+  @apply bg-primary border-primary min-w-[100px] cursor-pointer rounded-md border-2 p-2 text-white;
+}
+.btn-secondary {
+  @apply min-w-[100px] cursor-pointer rounded-md border-2 border-gray-500 bg-gray-500 p-2 text-white;
+}
+.btn-success {
+  @apply bg-rotary min-w-[100px] cursor-pointer rounded-md p-2 font-bold text-white;
+}
+.btn-danger {
+  @apply cursor-pointer rounded-md bg-red-500 p-2 text-white;
+}
+
+.checkbox {
+  @apply text-primary h-5 w-5 cursor-pointer rounded border border-gray-300;
+}
+.checkbox:checked {
+  @apply bg-primary border-primary;
+}
+
+/* animations */
+
+.btn-remove-animation {
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--color-red-600);
+  }
+}
+
+.btn-add-animation {
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #114d9b;
+  }
+}
+
+.btn-next-animation {
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 0;
+  background: var(--color-primary);
+  overflow: hidden;
+  color: #fff;
+  &:hover {
+    color: var(--color-primary);
+  }
+  &:hover:after {
+    width: 100%;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    transition: all 0.3s ease;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: #fff;
+  }
+}
+
+.btn-previous-animation {
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 0;
+  background: var(--color-gray-500);
+  overflow: hidden;
+  border: 2px solid var(--color-gray-500);
+  color: #fff;
+  &:hover {
+    color: var(--color-gray-500);
+  }
+  &:hover:after {
+    width: 100%;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    transition: all 0.3s ease;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: #fff;
+  }
+}
+
+.btn-up-animation {
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 0;
+  background: var(--color-rotary);
+  overflow: hidden;
+  border: 2px solid var(--color-rotary);
+  color: var(--color-rotary);
+  &:hover {
+    color: #fff;
+  }
+  &:hover:after {
+    height: 0;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    transition: all 0.3s ease;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+  }
+}
+
+.btn-form-animation {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--color-primary);
+  &:hover {
+    padding-right: 24px;
+    margin-left: 16px;
+    &:after {
+      opacity: 1;
+      right: 10px;
+    }
+  }
+  &:after {
+    content: "\00BB";
+    position: absolute;
+    opacity: 0;
+    font-size: 22px;
+    line-height: 40px;
+    top: -2px;
+    right: -20px;
+    transition: 0.4s;
+  }
+}
+
+.btn-inscription-animation {
+  overflow: hidden;
+  position: relative;
+  span {
+    z-index: 20;
+  }
+  &:after {
+    background: #fff;
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: 0.5;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+    z-index: -10;
+  }
+  &:hover {
+    &:after {
+      left: 120%;
+      transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+}
+
+.btn-subscribe-animation {
+  border: 2px solid var(--color-rotary);
+  transition: all 0.3s ease;
+  &:hover {
+    background: none;
+    color: var(--color-rotary);
+    box-shadow:
+      7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+      4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.btn-pay-animation {
+  border: 2px solid var(--color-rotary);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: none;
+    color: var(--color-rotary);
+  }
+}
+
+.btn-pay-loading-animation {
+  animation: toCircleAnimation 1.5s 1 forwards;
+  background: none;
+
+  .loadingPayment .border-primary {
+    border-color: var(--color-rotary);
+    border-top-color: #0000;
+  }
+}
+
+@keyframes toCircleAnimation {
+  100% {
+    min-width: 0;
+    border-radius: 50%;
+  }
+}
+
+.goBackAnimation {
+  width: fit-content;
+
+  span {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 0;
+      bottom: 0px;
+      height: 2px;
+      background-color: currentColor;
+      transition: width 0.3s ease-in-out;
+    }
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+.bounce-animation {
+  animation: globalBounce 1.5s infinite;
+}
+
+@keyframes globalBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.animate-popup-appear {
+  animation: popup-appear 0.3s ease-out forwards;
+}
+
+@keyframes popup-appear {
+  0% {
+    transform: scale(0.8) translateY(10px);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+  }
+}

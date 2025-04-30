@@ -1,3 +1,5 @@
 onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@tsparticles/engine'
   - sharp
   - unrs-resolver

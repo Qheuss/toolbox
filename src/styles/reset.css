@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Reset CSS */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-size: 100%;
+  line-height: 1.5;
+}
+
+body {
+  font-family: 'Roboto', serif;
+  background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+img,
+picture,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+select,
+input:focus {
+  outline: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}

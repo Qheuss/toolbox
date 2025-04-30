@@ -45,7 +45,7 @@ const Optimisation = () => {
         <h1>Personal Information</h1>
 
         <form.AppField
-          name="username"
+          name='username'
           children={(field) => (
             <>
               <field.TextField
@@ -60,7 +60,7 @@ const Optimisation = () => {
         />
 
         <form.AppField
-          name="email"
+          name='email'
           children={(field) => (
             <>
               <field.TextField
@@ -75,7 +75,7 @@ const Optimisation = () => {
         />
 
         <form.AppField
-          name="age"
+          name='age'
           children={(field) => (
             <>
               <field.TextField
@@ -83,7 +83,7 @@ const Optimisation = () => {
                 label={field.name}
                 error={field.state.meta.errors?.[0]}
                 defaultValue={field.state.value}
-                type="number"
+                type='number'
                 onChange={(e) => field.handleChange(e.target.valueAsNumber)}
               />
             </>
@@ -92,7 +92,7 @@ const Optimisation = () => {
 
         <form.AppForm>
           <form.SubmitButton
-            text="Envoyer"
+            text='Envoyer'
             disabled={form.state.isSubmitting}
           />
         </form.AppForm>
