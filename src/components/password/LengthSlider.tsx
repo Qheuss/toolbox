@@ -17,7 +17,7 @@ const LengthSlider = ({ passwordLength, handleChange }: LengthSliderProps) => {
     <div className={style.slider + ' card'}>
       <label
         htmlFor='password-length'
-        className='block text-space-text-secondary font-medium mb-4'
+        className='block text-space-text-secondary font-medium mb-6'
       >
         Password length:
       </label>

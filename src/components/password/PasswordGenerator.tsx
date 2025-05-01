@@ -1,16 +1,31 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import LengthSlider from './LengthSlider';
+import OptionToggle from './OptionToggle';
+import Button from './Button';
+import Result from './Result';
+import GoBack from './GoBack';
 
 const PasswordGenerator = () => {
-  const [passwordLength, setPasswordLength] = useState<number>(1);
+  const [passwordLength, setPasswordLength] = useState<number>(12);
   const [includeUppercase, setIncludeUppercase] = useState<boolean>(false);
   const [includeLowercase, setIncludeLowercase] = useState<boolean>(false);
   const [includeNumbers, setIncludeNumbers] = useState<boolean>(false);
   const [includeSymbols, setIncludeSymbols] = useState<boolean>(false);
   const [excludeSimilarCharacters, setExcludeSimilarCharacters] =
     useState<boolean>(false);
+  const [password, setPassword] = useState<string>('');
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => {
+        setError(null);
+      }, 6000);
+      return () => clearTimeout(timer);
+    }
+  }, [error]);
 
   function generateCryptographicallySecurePassword(
     length: number = passwordLength,
@@ -47,7 +62,9 @@ const PasswordGenerator = () => {
     if (includeSymbols) chars += symbols;
 
     if (chars.length === 0) {
-      throw new Error('At least one character set must be selected');
+      setError('At least one character set must be selected');
+    } else {
+      setError(null);
     }
 
     const randomValues = new Uint32Array(length);
@@ -117,11 +134,67 @@ const PasswordGenerator = () => {
   };
 
   return (
-    <div className='card'>
-      <LengthSlider
-        passwordLength={passwordLength}
-        handleChange={handleChange}
-      />
+    <div className='min-w-[384px] relative'>
+      <GoBack label='Back' className='mb-4 max-w-fit' />
+      <form className='card'>
+        <h1 className='text-3xl font-bold mb-4'>Password Generator</h1>
+        <div className='card mb-4 flex flex-col gap-4'>
+          <h2 className='font-medium text-md'>
+            Choose at least one character set:
+          </h2>
+          <OptionToggle
+            option={includeUppercase}
+            setOption={setIncludeUppercase}
+            label='Include Uppercase'
+          />
+          <OptionToggle
+            option={includeLowercase}
+            setOption={setIncludeLowercase}
+            label='Include Lowercase'
+          />
+          <OptionToggle
+            option={includeNumbers}
+            setOption={setIncludeNumbers}
+            label='Include Numbers'
+          />
+          <OptionToggle
+            option={includeSymbols}
+            setOption={setIncludeSymbols}
+            label='Include Symbols'
+          />
+        </div>
+        <div className='card mb-4'>
+          <OptionToggle
+            option={excludeSimilarCharacters}
+            setOption={setExcludeSimilarCharacters}
+            label='Exclude Similar Characters'
+          />
+        </div>
+        <LengthSlider
+          passwordLength={passwordLength}
+          handleChange={handleChange}
+        />
+        <Button
+          onClick={() => {
+            setPassword(
+              generateCryptographicallySecurePassword(passwordLength, {
+                includeUppercase,
+                includeLowercase,
+                includeNumbers,
+                includeSymbols,
+                excludeSimilarCharacters,
+              })
+            );
+          }}
+          text='Generate Password'
+        />
+      </form>
+      <Result result={password} />
+      {error && (
+        <span className='absolute text-martian font-medium text-sm mt-2 text-center w-full block'>
+          {error}
+        </span>
+      )}
     </div>
   );
 };

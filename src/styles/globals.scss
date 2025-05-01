@@ -70,7 +70,11 @@
 }
 
 .card {
-  @apply w-full max-w-sm mx-auto my-5 relative bg-space-midnight/50 rounded-lg shadow-md p-4 flex flex-col items-center;
+  @apply w-full max-w-sm mx-auto relative bg-space-midnight/50 rounded-lg shadow-md p-4 flex flex-col items-center;
+}
+
+.button {
+  @apply font-semibold py-2 px-4 rounded-md transition duration-300 ease-in-out cursor-pointer;
 }
 
 // Animations
