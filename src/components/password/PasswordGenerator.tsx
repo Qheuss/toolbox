@@ -1,9 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Slider from '@mui/material/Slider';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import LengthSlider from './LengthSlider';
 
 const PasswordGenerator = () => {
   const [passwordLength, setPasswordLength] = useState<number>(1);
@@ -114,45 +112,16 @@ const PasswordGenerator = () => {
     return result;
   }
 
-  const handleChange = (event: Event, newValue: number | number[]) => {
-    setPasswordLength(newValue as number);
+  const handleChange = (value: number) => {
+    setPasswordLength(value);
   };
+
   return (
-    <div>
-      <input type='text' className='bg-amber-500' />
-      <Box sx={{ width: 300, margin: '20px auto' }}>
-        <Typography id='custom-slider-label' gutterBottom>
-          Temperature
-        </Typography>
-        <Slider
-          value={passwordLength}
-          onChange={handleChange}
-          aria-labelledby='custom-slider-label'
-          valueLabelDisplay='auto'
-          min={0}
-          max={100}
-          sx={{
-            color: '#10b981',
-            '& .MuiSlider-thumb': {
-              height: 24,
-              width: 24,
-              backgroundColor: '#fff',
-              border: '2px solid currentColor',
-              '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
-                boxShadow: '0 0 0 8px rgba(16, 185, 129, 0.16)',
-              },
-              '&:before': {
-                display: 'none',
-              },
-            },
-            '& .MuiSlider-rail': {
-              opacity: 0.5,
-              backgroundColor: '#bfdbfe',
-            },
-          }}
-        />
-        <Typography>Value: {passwordLength}</Typography>
-      </Box>
+    <div className='card'>
+      <LengthSlider
+        passwordLength={passwordLength}
+        handleChange={handleChange}
+      />
     </div>
   );
 };

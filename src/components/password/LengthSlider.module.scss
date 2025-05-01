@@ -1,0 +1,65 @@
+.slider {
+  .rangeCosmic {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    height: 8px;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  /* WebKit browsers (Chrome, Safari, Edge) */
+  .rangeCosmic::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #5a1c8a;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    transition: transform 0.15s ease;
+  }
+
+  .rangeCosmic::-webkit-slider-thumb:hover {
+    background-color: #5a1c8a;
+  }
+
+  .rangeCosmic::-webkit-slider-thumb:active {
+    background-color: #5a1c8a;
+    transform: scale(1.1);
+  }
+
+  /* Firefox */
+  .rangeCosmic::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #5a1c8a;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .rangeCosmic::-moz-range-thumb:hover {
+    background-color: #5a1c8a;
+  }
+
+  .rangeCosmic::-moz-range-thumb:active {
+    background-color: #5a1c8a;
+  }
+
+  .rangeCosmic::-moz-range-track {
+    background: var(--color-space-border);
+    height: 8px;
+    border-radius: 8px;
+  }
+
+  .rangeCosmic::-moz-range-progress {
+    background: var(--color-cosmic);
+    height: 8px;
+    border-radius: 8px;
+  }
+}

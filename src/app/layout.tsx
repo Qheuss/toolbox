@@ -1,18 +1,15 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import SpaceBackground from '@/components/SpaceBackgroundThree';
+import { Space_Grotesk } from 'next/font/google';
 
 import '@/styles/globals.scss';
 import '@/styles/reset.css';
-import SpaceBackground from '@/components/SpaceBackgroundThree';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  display: 'swap',
+  weight: ['300', '400', '500', '700'],
+  variable: '--font-space-grotesk',
 });
 
 export const metadata: Metadata = {
@@ -28,10 +25,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <SpaceBackground starCount={1000} />
+      <body className={`${spaceGrotesk.variable} antialiased`}>
+        <SpaceBackground starCount={1250} />
         {children}
       </body>
     </html>

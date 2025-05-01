@@ -9,14 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "@mui/material": "^7.0.2",
     "@tanstack/react-form": "^1.6.3",
-    "@tsparticles/engine": "^3.8.1",
-    "@tsparticles/preset-stars": "^3.2.0",
-    "@tsparticles/react": "^3.0.0",
-    "@tsparticles/slim": "^3.8.1",
     "@types/three": "^0.176.0",
     "motion": "^12.9.2",
     "next": "15.3.1",
