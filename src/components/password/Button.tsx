@@ -1,14 +1,22 @@
+import { getSpaceColorClass, SpaceColor } from '@/utils/colorHelpers';
+
 interface ButtonProps {
   onClick: () => void;
   text: string;
-  color?: string;
+  color?: SpaceColor;
+  className?: string;
 }
 
-const Button = ({ onClick, text, color = 'cosmic' }: ButtonProps) => {
+const Button = ({
+  onClick,
+  text,
+  color = 'cosmic',
+  className,
+}: ButtonProps) => {
   return (
     <button
       type='button'
-      className={`button bg-${color} mt-4`}
+      className={`button ${getSpaceColorClass(color, 'bg')} ${className}`}
       onClick={onClick}
     >
       {text}

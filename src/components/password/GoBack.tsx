@@ -1,19 +1,35 @@
+import { getSpaceColorClass, SpaceColor } from '@/utils/colorHelpers';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 interface GoBackProps {
   label?: string;
   className?: string;
+  color?: SpaceColor;
 }
 
-const GoBack = ({ label = 'Back', className = '' }: GoBackProps) => {
+const GoBack = ({
+  label = 'Back',
+  className = '',
+  color = 'cosmic',
+}: GoBackProps) => {
   return (
     <Link
       href='/'
-      className={`flex items-center gap-2 text-space-text-secondary hover:text-cosmic transition-colors group cursor-pointer ${className}`}
+      className={`flex items-center gap-2 text-space-text-secondary ${getSpaceColorClass(
+        color,
+        'text',
+        'hover'
+      )} transition-colors group cursor-pointer ${className}`}
       aria-label='Go back'
     >
-      <span className='text-space-text-disabled group-hover:text-cosmic transition-colors'>
+      <span
+        className={`text-space-text-disabled group-hover:text-cosmic ${getSpaceColorClass(
+          color,
+          'text',
+          'group-hover'
+        )} transition-colors`}
+      >
         <svg
           xmlns='http://www.w3.org/2000/svg'
           width='18'

@@ -134,7 +134,7 @@ const PasswordGenerator = () => {
   };
 
   return (
-    <div className='min-w-[384px] relative'>
+    <div className='w-[384px] relative'>
       <GoBack label='Back' className='mb-4 max-w-fit' />
       <form className='card'>
         <h1 className='text-3xl font-bold mb-4'>Password Generator</h1>
@@ -143,14 +143,14 @@ const PasswordGenerator = () => {
             Choose at least one character set:
           </h2>
           <OptionToggle
-            option={includeUppercase}
-            setOption={setIncludeUppercase}
-            label='Include Uppercase'
-          />
-          <OptionToggle
             option={includeLowercase}
             setOption={setIncludeLowercase}
             label='Include Lowercase'
+          />
+          <OptionToggle
+            option={includeUppercase}
+            setOption={setIncludeUppercase}
+            label='Include Uppercase'
           />
           <OptionToggle
             option={includeNumbers}
@@ -187,6 +187,7 @@ const PasswordGenerator = () => {
             );
           }}
           text='Generate Password'
+          className='mt-4'
         />
       </form>
       <Result result={password} />

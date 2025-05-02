@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
+import { getSpaceColorClass, type SpaceColor } from '@/utils/colorHelpers';
 
 interface ResultProps {
   result: string | null;
   text?: string;
+  color?: SpaceColor;
 }
 
-const Result = ({ result, text }: ResultProps) => {
+const Result = ({ result, text, color = 'cosmic' }: ResultProps) => {
   const [isCopied, setIsCopied] = useState(false);
 
   useEffect(() => {
@@ -33,17 +35,21 @@ const Result = ({ result, text }: ResultProps) => {
   return (
     <div className='mt-4 flex flex-col items-center justify-center relative'>
       {text && (
-        <h2 className='text-xl font-bold text-space-text-secondary mb-2'>
-          {text}
-        </h2>
+        <h2 className='text-xl font-bold text-space-text mb-1'>{text}</h2>
       )}
       <button
-        className='relative bg-space-midnight/80 pr-12 pl-5 py-3 rounded-md border border-space-border/60 w-full cursor-pointer group'
+        className='relative bg-space-midnight/80 pr-12 pl-5 py-3 rounded-md border border-space-border/60 w-full cursor-pointer group whitespace-normal break-words'
         onClick={handleCopy}
         aria-label='Copy to clipboard'
       >
         <span className='text-space-text-secondary'>{result}</span>
-        <span className='absolute right-4 top-4 text-space-text-disabled group-hover:text-cosmic transition-colors'>
+        <span
+          className={`absolute right-4 top-[40%] text-space-text-disabled ${getSpaceColorClass(
+            color,
+            'text',
+            'group-hover'
+          )} transition-colors duration-200`}
+        >
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='18'
@@ -61,7 +67,11 @@ const Result = ({ result, text }: ResultProps) => {
         </span>
       </button>
       {isCopied && (
-        <span className='absolute mt-2 text-sm text-cosmic font-medium top-12'>
+        <span
+          className={`absolute mt-2 text-sm ${getSpaceColorClass(
+            color
+          )} font-medium top-[105%]`}
+        >
           Copied to clipboard!
         </span>
       )}

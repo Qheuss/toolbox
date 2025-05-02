@@ -1,3 +1,4 @@
+import { getSpaceColorClass, SpaceColor } from '@/utils/colorHelpers';
 import React from 'react';
 
 interface ToggleProps {
@@ -5,14 +6,7 @@ interface ToggleProps {
   setOption: React.Dispatch<React.SetStateAction<boolean>>;
   label: string;
   disabled?: boolean;
-  color?:
-    | 'cosmic'
-    | 'nebula'
-    | 'aurora'
-    | 'pulsar'
-    | 'martian'
-    | 'supernova'
-    | string;
+  color?: SpaceColor;
 }
 
 const Toggle: React.FC<ToggleProps> = ({
@@ -22,23 +16,6 @@ const Toggle: React.FC<ToggleProps> = ({
   disabled = false,
   color = 'cosmic',
 }) => {
-  const getColorClass = () => {
-    const themeColors = {
-      cosmic: 'bg-cosmic',
-      nebula: 'bg-nebula',
-      aurora: 'bg-aurora',
-      pulsar: 'bg-pulsar',
-      martian: 'bg-martian',
-      supernova: 'bg-supernova',
-    };
-
-    if (color in themeColors) {
-      return themeColors[color as keyof typeof themeColors];
-    }
-
-    return `bg-[${color}]`;
-  };
-
   return (
     <label className='flex items-center justify-between w-full cursor-pointer'>
       <span className='text-sm font-medium text-space-text-secondary'>
@@ -54,7 +31,7 @@ const Toggle: React.FC<ToggleProps> = ({
           relative inline-flex h-6 w-11 shrink-0 rounded-full border-2 border-transparent 
           transition-colors duration-200 ease-in-out focus:outline-none
           ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
-          ${option ? getColorClass() : 'bg-space-border'}
+          ${option ? getSpaceColorClass(color, 'bg') : 'bg-space-border'}
         `}
       >
         <span className='sr-only'>{label}</span>

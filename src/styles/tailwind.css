@@ -1,0 +1,155 @@
+/* Text variants */
+.text-cosmic {
+  @apply text-[var(--color-cosmic)];
+}
+.text-aurora {
+  @apply text-[var(--color-aurora)];
+}
+.text-celestial {
+  @apply text-[var(--color-celestial)];
+}
+.text-deepspace {
+  @apply text-[var(--color-deepspace)];
+}
+.text-pulsar {
+  @apply text-[var(--color-pulsar)];
+}
+.text-nebula {
+  @apply text-[var(--color-nebula)];
+}
+.text-martian {
+  @apply text-[var(--color-martian)];
+}
+.text-supernova {
+  @apply text-[var(--color-supernova)];
+}
+
+/* Background variants */
+.bg-cosmic {
+  @apply bg-[var(--color-cosmic)];
+}
+.bg-aurora {
+  @apply bg-[var(--color-aurora)];
+}
+.bg-celestial {
+  @apply bg-[var(--color-celestial)];
+}
+.bg-deepspace {
+  @apply bg-[var(--color-deepspace)];
+}
+.bg-pulsar {
+  @apply bg-[var(--color-pulsar)];
+}
+.bg-nebula {
+  @apply bg-[var(--color-nebula)];
+}
+.bg-martian {
+  @apply bg-[var(--color-martian)];
+}
+.bg-supernova {
+  @apply bg-[var(--color-supernova)];
+}
+
+/* Border variants */
+.border-cosmic {
+  @apply border-[var(--color-cosmic)];
+}
+.border-aurora {
+  @apply border-[var(--color-aurora)];
+}
+.border-celestial {
+  @apply border-[var(--color-celestial)];
+}
+.border-deepspace {
+  @apply border-[var(--color-deepspace)];
+}
+.border-pulsar {
+  @apply border-[var(--color-pulsar)];
+}
+.border-nebula {
+  @apply border-[var(--color-nebula)];
+}
+.border-martian {
+  @apply border-[var(--color-martian)];
+}
+.border-supernova {
+  @apply border-[var(--color-supernova)];
+}
+
+/* Hover variants */
+.hover\:text-cosmic:hover {
+  @apply text-[var(--color-cosmic)];
+}
+.hover\:text-aurora:hover {
+  @apply text-[var(--color-aurora)];
+}
+.hover\:text-celestial:hover {
+  @apply text-[var(--color-celestial)];
+}
+.hover\:text-deepspace:hover {
+  @apply text-[var(--color-deepspace)];
+}
+.hover\:text-pulsar:hover {
+  @apply text-[var(--color-pulsar)];
+}
+.hover\:text-nebula:hover {
+  @apply text-[var(--color-nebula)];
+}
+.hover\:text-martian:hover {
+  @apply text-[var(--color-martian)];
+}
+.hover\:text-supernova:hover {
+  @apply text-[var(--color-supernova)];
+}
+
+/* Group hover variants */
+.group:hover .group-hover\:text-cosmic {
+  @apply text-[var(--color-cosmic)];
+}
+.group:hover .group-hover\:text-aurora {
+  @apply text-[var(--color-aurora)];
+}
+.group:hover .group-hover\:text-celestial {
+  @apply text-[var(--color-celestial)];
+}
+.group:hover .group-hover\:text-deepspace {
+  @apply text-[var(--color-deepspace)];
+}
+.group:hover .group-hover\:text-pulsar {
+  @apply text-[var(--color-pulsar)];
+}
+.group:hover .group-hover\:text-nebula {
+  @apply text-[var(--color-nebula)];
+}
+.group:hover .group-hover\:text-martian {
+  @apply text-[var(--color-martian)];
+}
+.group:hover .group-hover\:text-supernova {
+  @apply text-[var(--color-supernova)];
+}
+
+/* Focus state variants */
+.focus\:border-cosmic:focus {
+  border-color: var(--color-cosmic);
+}
+.focus\:border-aurora:focus {
+  border-color: var(--color-aurora);
+}
+.focus\:border-celestial:focus {
+  border-color: var(--color-celestial);
+}
+.focus\:border-deepspace:focus {
+  border-color: var(--color-deepspace);
+}
+.focus\:border-pulsar:focus {
+  border-color: var(--color-pulsar);
+}
+.focus\:border-nebula:focus {
+  border-color: var(--color-nebula);
+}
+.focus\:border-martian:focus {
+  border-color: var(--color-martian);
+}
+.focus\:border-supernova:focus {
+  border-color: var(--color-supernova);
+}

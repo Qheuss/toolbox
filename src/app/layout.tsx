@@ -4,6 +4,7 @@ import { Space_Grotesk } from 'next/font/google';
 
 import '@/styles/globals.scss';
 import '@/styles/reset.css';
+import '@/styles/tailwind.css';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],

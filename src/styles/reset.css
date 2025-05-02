@@ -24,6 +24,7 @@ canvas {
 }
 
 select,
+textarea,
 input:focus {
   outline: none;
 }
