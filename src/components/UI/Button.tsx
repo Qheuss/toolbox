@@ -5,6 +5,7 @@ interface ButtonProps {
   text: string;
   color?: SpaceColor;
   className?: string;
+  disabled?: boolean;
 }
 
 const Button = ({
@@ -12,12 +13,14 @@ const Button = ({
   text,
   color = 'cosmic',
   className,
+  disabled,
 }: ButtonProps) => {
   return (
     <button
       type='button'
       className={`button ${getSpaceColorClass(color, 'bg')} ${className}`}
       onClick={onClick}
+      disabled={disabled}
     >
       {text}
     </button>

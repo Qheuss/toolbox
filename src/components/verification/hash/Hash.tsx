@@ -1,11 +1,11 @@
 'use client';
 
-import GoBack from '@/components/password/GoBack';
-import Result from '@/components/password/Result';
-import { useCallback, useState, useEffect, ChangeEvent, use } from 'react';
-import Select from './Select';
-import Dropzone from './Dropzone';
+import GoBack from '@/components/UI/GoBack';
+import Result from '@/components/UI/Result';
+import { useCallback, useState, useEffect, ChangeEvent } from 'react';
+import Select from '../../UI/Select';
 import TextField from './TextField';
+import Dropzone from '@/components/UI/Dropzone';
 
 export type HashAlgorithm = 'SHA-1' | 'SHA-256' | 'SHA-384' | 'SHA-512';
 
@@ -154,7 +154,6 @@ function Hash() {
           />
           <span>Or</span>
           <Dropzone
-            onDropDependencies={[algorithm]}
             onDropTryCatch={onDropTryCatch}
             setUploadedFiles={setUploadedFiles}
             color={componentColor}
@@ -185,7 +184,9 @@ function Hash() {
             <p className='mt-4 text-green-500 text-center'>Hash matches!</p>
           )}
           {!isMatching && matchingHash.length > 0 && (
-            <p className='mt-4 text-red-500 text-center'>Hash don't match :(</p>
+            <p className='mt-4 text-red-500 text-center'>
+              Hash don&apos;t match :(
+            </p>
           )}
         </div>
       )}

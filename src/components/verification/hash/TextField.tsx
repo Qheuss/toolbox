@@ -1,4 +1,4 @@
-import Button from '@/components/password/Button';
+import Button from '@/components/UI/Button';
 import { getSpaceColorClass, SpaceColor } from '@/utils/colorHelpers';
 import { ChangeEvent } from 'react';
 

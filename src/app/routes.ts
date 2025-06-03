@@ -4,7 +4,7 @@ export const generatorRoutes = [
 ];
 
 export const optimisationRoutes = [
-  { path: '/optimisation/images', label: 'Images', color: 'bg-nebula' },
+  { path: '/optimisation/images', label: 'Images', color: 'bg-supernova' },
 ];
 
 export const verificationRoutes = [

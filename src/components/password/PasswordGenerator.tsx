@@ -2,10 +2,10 @@
 
 import { useEffect, useState } from 'react';
 import LengthSlider from './LengthSlider';
-import OptionToggle from './OptionToggle';
-import Button from './Button';
-import Result from './Result';
-import GoBack from './GoBack';
+import OptionToggle from '../UI/OptionToggle';
+import Button from '../UI/Button';
+import Result from '../UI/Result';
+import GoBack from '../UI/GoBack';
 
 const PasswordGenerator = () => {
   const [passwordLength, setPasswordLength] = useState<number>(12);

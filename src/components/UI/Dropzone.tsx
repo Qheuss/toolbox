@@ -2,11 +2,9 @@
 
 import { Dispatch, SetStateAction, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { HashAlgorithm } from './Hash';
 import { getSpaceColorClass, SpaceColor } from '@/utils/colorHelpers';
 
 interface DropzoneProps {
-  onDropDependencies?: HashAlgorithm[] | any[];
   onDropTryCatch: (acceptedFiles: File[]) => void;
   setUploadedFiles: Dispatch<SetStateAction<File[]>>;
   maxFiles?: number;
@@ -16,7 +14,6 @@ interface DropzoneProps {
 }
 
 function Dropzone({
-  onDropDependencies = [],
   onDropTryCatch,
   setUploadedFiles,
   maxFiles = 1,
@@ -38,7 +35,7 @@ function Dropzone({
         onDropTryCatch(acceptedFiles);
       }
     },
-    [setUploadedFiles, onDropTryCatch, maxFiles, ...onDropDependencies]
+    [setUploadedFiles, onDropTryCatch, maxFiles]
   );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
