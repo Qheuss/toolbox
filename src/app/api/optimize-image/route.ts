@@ -74,9 +74,9 @@ function calculateOptimalSize(
 export async function POST(request: NextRequest) {
   try {
     const contentLength = request.headers.get('content-length');
-    if (contentLength && parseInt(contentLength) > 10 * 1024 * 1024) {
+    if (contentLength && parseInt(contentLength) > 20 * 1024 * 1024) {
       return NextResponse.json(
-        { error: 'File too large. Please use images smaller than 10MB.' },
+        { error: 'File too large. Please use images smaller than 20MB.' },
         { status: 413 }
       );
     }
@@ -93,9 +93,9 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (imageFile.size > 10 * 1024 * 1024) {
+    if (imageFile.size > 20 * 1024 * 1024) {
       return NextResponse.json(
-        { error: 'File too large. Please use images smaller than 10MB.' },
+        { error: 'File too large. Please use images smaller than 20MB.' },
         { status: 413 }
       );
     }
