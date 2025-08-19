@@ -1,6 +1,5 @@
 import { getSpaceColorClass, SpaceColor } from '@/utils/colorHelpers';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 
 interface GoBackProps {
   label?: string;
