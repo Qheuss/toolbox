@@ -1,3 +1,3 @@
 ## My personnal toolbox
 
-*Currently in development
+*Ongoing project
