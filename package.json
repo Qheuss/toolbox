@@ -12,7 +12,7 @@
     "@tanstack/react-form": "^1.27.7",
     "@types/three": "^0.176.0",
     "motion": "^12.27.5",
-    "next": "15.3.1",
+    "next": "15.5.9",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-dropzone": "^14.3.8",
